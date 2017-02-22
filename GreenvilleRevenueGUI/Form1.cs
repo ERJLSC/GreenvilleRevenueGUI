@@ -1,6 +1,6 @@
 ﻿// Program written by: Erik Johnson, Jake Frasier
-//       Program date: 1/28/17
-//Program description:  Greenville Revenue Chapter 3, Case Problem 1
+//       Program date: 2/22/17
+//Program description:  Greenville Revenue Chapter 5, Case Problem 1
 // Encountered issues: 
 using System;
 using System.Collections.Generic;
@@ -28,31 +28,43 @@ namespace GreenvilleRevenueGUI
             
             lastYearContestants = Convert.ToDouble(lastYearTextBox.Text);
             thisYearContestants = Convert.ToDouble(thisYearTextBox.Text);
-            expectedRevenue = thisYearContestants * 25; // entrence fee is $25
-            expectedRevenueLabel.Text=("This year's projected income is "+ expectedRevenue.ToString("C"));
+            if (lastYearContestants > 30) MessageBox.Show("You entered a number that is too high for last year.\nPlease try again.");
+            if (lastYearContestants < 0) MessageBox.Show("You entered a number that is too low for last year.\nPlease try again.");
+            if (thisYearContestants > 30) MessageBox.Show("You entered a number that is too high for this year.\nPlease try again.");
+            if (thisYearContestants < 0) MessageBox.Show("You entered a number that is too low for this year.\nPlease try again.");
+
+            if (thisYearContestants > 0 && lastYearContestants > 0 
+                && thisYearContestants < 30 && lastYearContestants < 30)
+            {
+                expectedRevenue = thisYearContestants * 25; // entrence fee is $25
+                expectedRevenueLabel.Text=("This year's projected income is "+ expectedRevenue.ToString("C"));
            
-            expectedRevenueLabel.Visible = true;
-            greaterLabel.Visible = true;
-
-            // check for twice as many contestants
-             if ((lastYearContestants * 2) + 1 <= thisYearContestants)
-            {
-                greaterLabel.Text = "The competition is more than twice as big this year!";
-            }
-             
-             // less than double
-            else  
-            {
-                greaterLabel.Text = "The competition is bigger than ever!";
-            }
-            // less than or equal to last year
-            if (lastYearContestants  >= thisYearContestants)
-            {
-                greaterLabel.Text = "A tighter race this year! Come out and cast your vote!";
+                expectedRevenueLabel.Visible = true;
+                greaterLabel.Visible = true;
                 
+                // check for twice as many contestants
+                if ((lastYearContestants * 2) + 1 <= thisYearContestants)
+                {
+                    greaterLabel.Text = "The competition is more than twice as big this year!";
+                }
+                // less than double
+                else
+                {
+                    greaterLabel.Text = "The competition is bigger than ever!";
+                }
+                // less than or equal to last year
+                if (lastYearContestants >= thisYearContestants)
+                {
+                    greaterLabel.Text = "A tighter race this year! Come out and cast your vote!";
+
+                }
             }
-
-
         }
+
+        private void lastYearTextBox_TextChanged(object sender, EventArgs e)
+        { }
+        
+
     }
+
 }

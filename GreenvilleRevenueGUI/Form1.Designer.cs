@@ -72,6 +72,7 @@
             this.lastYearTextBox.Size = new System.Drawing.Size(56, 20);
             this.lastYearTextBox.TabIndex = 3;
             this.lastYearTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lastYearTextBox.TextChanged += new System.EventHandler(this.lastYearTextBox_TextChanged);
             // 
             // thisYearTextBox
             // 
