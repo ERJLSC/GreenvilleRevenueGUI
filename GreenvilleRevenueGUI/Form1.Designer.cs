@@ -35,6 +35,7 @@
             this.thisYearTextBox = new System.Windows.Forms.TextBox();
             this.expectedRevenueLabel = new System.Windows.Forms.Label();
             this.greaterLabel = new System.Windows.Forms.Label();
+            this.contestantDataButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -102,11 +103,23 @@
             this.greaterLabel.Text = "label3";
             this.greaterLabel.Visible = false;
             // 
+            // contestantDataButton
+            // 
+            this.contestantDataButton.Enabled = false;
+            this.contestantDataButton.Location = new System.Drawing.Point(96, 184);
+            this.contestantDataButton.Name = "contestantDataButton";
+            this.contestantDataButton.Size = new System.Drawing.Size(200, 32);
+            this.contestantDataButton.TabIndex = 7;
+            this.contestantDataButton.Text = "Enter Contestant Data";
+            this.contestantDataButton.UseVisualStyleBackColor = true;
+            this.contestantDataButton.Click += new System.EventHandler(this.contestantDataButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 261);
+            this.Controls.Add(this.contestantDataButton);
             this.Controls.Add(this.greaterLabel);
             this.Controls.Add(this.expectedRevenueLabel);
             this.Controls.Add(this.thisYearTextBox);
@@ -130,6 +143,7 @@
         private System.Windows.Forms.TextBox thisYearTextBox;
         private System.Windows.Forms.Label expectedRevenueLabel;
         private System.Windows.Forms.Label greaterLabel;
+        private System.Windows.Forms.Button contestantDataButton;
     }
 }
 
